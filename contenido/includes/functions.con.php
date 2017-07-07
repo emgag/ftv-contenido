@@ -48,7 +48,7 @@ cInclude('includes', 'functions.con2.php');
  *
  * @return int
  *         Id of the new article
- * 
+ *
  * @throws cDbException
  * @throws cException
  * @throws cInvalidArgumentException
@@ -267,7 +267,7 @@ function conEditFirstTime(
  * @param string       $changefreq
  *
  * @return int|void
- * 
+ *
  * @throws cDbException
  * @throws cException
  * @throws cInvalidArgumentException
@@ -774,7 +774,7 @@ function conLockBulkEditing($idarts, $idlang, $lock) {
  *         Language Id
  *
  * @return bool
- * 
+ *
  * @throws cDbException
  * @throws cException
  */
@@ -1107,7 +1107,7 @@ function conFetchCategoryTree($client = false, $lang = false) {
  *
  * @return array
  *         idcats of all scions
- * 
+ *
  * @throws cDbException
  */
 function conDeeperCategoriesArray($idcat) {
@@ -1267,7 +1267,7 @@ function conMakeStart($idcatart, $isstart)
  *         Start article flag
  *
  * @return bool if action was successfull
- *              
+ *
  * @throws cDbException
  * @throws cException
  * @throws cInvalidArgumentException
@@ -1606,7 +1606,7 @@ function conFlagOnOffline() {
     }
 
     // Set all articles which are in between of our start/endtime to online
-    $where = "NOW() > datestart AND (NOW() < dateend OR dateend = '0000-00-00 00:00:00') AND " . "online = 0 AND timemgmt = 1";
+    $where = "NOW() > datestart AND (NOW() < dateend OR dateend = '0000-00-00 00:00:00' OR dateend IS NULL) AND " . "online = 0 AND timemgmt = 1";
     $oArtLangColl->resetQuery();
     $ids = $oArtLangColl->getIdsByWhereClause($where);
     foreach ($ids as $id) {
@@ -1678,7 +1678,7 @@ function conMoveArticles() {
  * @param int $srcidtplcfg
  *
  * @return int|NULL
- * 
+ *
  * @throws cDbException
  * @throws cException
  * @throws cInvalidArgumentException
@@ -1702,7 +1702,7 @@ function conCopyTemplateConfiguration($srcidtplcfg) {
  * @param int $dstidtplcfg
  *
  * @return bool
- * 
+ *
  * @throws cDbException
  * @throws cException
  * @throws cInvalidArgumentException
@@ -1867,11 +1867,11 @@ function conCopyArtLang($srcidart, $dstidart, $dstidcat, $newtitle, $useCopyLabe
  * @param bool    $useCopyLabel
  *
  * @return int|bool
- * 
+ *
  * @throws cDbException
  * @throws cException
  * @throws cInvalidArgumentException
- * 
+ *
  * @global object $auth
  */
 function conCopyArticle($srcidart, $dstidcat = 0, $newtitle = '', $useCopyLabel = true) {
@@ -1932,9 +1932,9 @@ function conCopyArticle($srcidart, $dstidcat = 0, $newtitle = '', $useCopyLabel 
  * @param int    $minLevel
  *
  * @return int
- * 
+ *
  * @throws cDbException
- * 
+ *
  * @global array $cfg
  * @global int   $client
  * @global int   $lang
@@ -2066,7 +2066,7 @@ function conSyncArticle($idart, $srclang, $dstlang) {
  *                If specified, uses the given db object (NOT used)
  *
  * @return bool
- * 
+ *
  * @throws cDbException
  */
 function isStartArticle($idartlang, $idcat, $idlang, $db = NULL) {
@@ -2084,7 +2084,7 @@ function isStartArticle($idartlang, $idcat, $idlang, $db = NULL) {
  *
  * @return array
  *         Flat array which contains all category id's
- * 
+ *
  * @throws cDbException
  */
 function conGetCategoryAssignments($idart, $db = NULL) {
@@ -2118,7 +2118,7 @@ function conGetCategoryAssignments($idart, $db = NULL) {
  * @throws cDbException
  * @throws cException
  * @throws cInvalidArgumentException
- * 
+ *
  * @global array $cfgClient
  */
 function conRemoveOldCategoryArticle($idcat, $idart, $idartlang, $client, $lang) {
