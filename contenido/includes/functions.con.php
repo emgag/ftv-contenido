@@ -1443,7 +1443,7 @@ function conFlagOnOffline() {
     }
 
     // Set all articles which are in between of our start/endtime to online
-    $where = "NOW() > datestart AND (NOW() < dateend OR dateend = '0000-00-00 00:00:00') AND " . "online = 0 AND timemgmt = 1";
+    $where = "NOW() > datestart AND (NOW() < dateend OR dateend = '0000-00-00 00:00:00' OR dateend IS NULL) AND " . "online = 0 AND timemgmt = 1";
     $oArtLangColl->resetQuery();
     $ids = $oArtLangColl->getIdsByWhereClause($where);
     foreach ($ids as $id) {
