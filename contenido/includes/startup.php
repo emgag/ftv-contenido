@@ -209,6 +209,11 @@ if (cFileHandler::exists($cfg['path']['contenido_config'] . 'config.chains.load.
     include_once($cfg['path']['contenido_config'] . 'config.chains.load.php');
 }
 
+// load all local chain inclusions if there are any
+if (cFileHandler::exists($cfg['path']['contenido_config'] . 'config.chains.load.local.php')) {
+    include_once($cfg['path']['contenido_config'] . 'config.chains.load.local.php');
+}
+
 // Set default database connection parameter
 cDb::setDefaultConfiguration($cfg['db']);
 
