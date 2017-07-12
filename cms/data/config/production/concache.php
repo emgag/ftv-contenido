@@ -36,7 +36,7 @@ $cfgConCache['excludecontenido'] = true;
  * activate caching of frontend output
  * @var bool  $cfgConCache['enable']
  */
-$cfgConCache['enable'] = true;
+$cfgConCache['enable'] = false;
 
 /**
  * compose debuginfo (hit/miss and execution time of caching)
