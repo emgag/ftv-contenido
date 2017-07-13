@@ -248,7 +248,7 @@ function parseElement($element, &$targetArray, $numberOfElements) {
             } else {
                 $matches[6] = 1;      // step
             }
-            for ($j = lTrimZeros($matches[2]); $j <= lTrimZeros($matches[4]); $j+=lTrimZeros($matches[6])) {
+            for ($j = ((int)lTrimZeros($matches[2]));$j <= ((int)lTrimZeros($matches[4]));$j += ((int)lTrimZeros($matches[6]))) {
                 $targetArray[$j] = TRUE;
             }
         }
