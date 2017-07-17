@@ -1610,7 +1610,7 @@ function conFlagOnOffline() {
     $oArtLangColl->resetQuery();
     $ids = $oArtLangColl->getIdsByWhereClause($where);
     foreach ($ids as $id) {
-        $sql = "UPDATE " . $cfg['tab']['art_lang'] . " SET online = 1, published = datestart WHERE idartlang = " . (int) $id;
+        $sql = "UPDATE " . $cfg['tab']['art_lang'] . " SET online = 1, published = datestart, lastmodified = datestart WHERE idartlang = " . (int) $id;
         $db->query($sql);
     }
     if(count($ids) > 0) {
