@@ -110,6 +110,7 @@ i18n("Search Terms")
                 <properties>Properties</properties>
                 <configuration>Configuration</configuration>
                 <preview>Preview</preview>
+                <preview_mobile>Preview Mobile</preview_mobile>
                 <meta>SEO</meta>
                 <content>Raw data</content>
             </article>
