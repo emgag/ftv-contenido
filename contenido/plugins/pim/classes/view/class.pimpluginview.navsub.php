@@ -329,6 +329,8 @@ class PimPluginViewNavSub {
                     return false;
                 }
 
+                $founded = array();
+
                 foreach ($entriesLang as $entry) {
 
                     // If we have more then one navigation entry, define
