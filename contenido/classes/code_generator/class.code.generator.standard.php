@@ -314,11 +314,15 @@ class cCodeGeneratorStandard extends cCodeGeneratorAbstract {
      * @see cCodeGeneratorAbstract::_processCodeTitleTag()
      * @return string
      */
-    protected function _processCodeTitleTag()
-    {
-        if ($this->_pageTitle == '') {
-            cApiCecHook::setDefaultReturnValue($this->_pageTitle);
-            $this->_pageTitle = cApiCecHook::executeAndReturn('Contenido.Content.CreateTitletag');
+    protected function _processCodeTitleTag() {
+        try {
+            cApiCecHook::setReturnArgumentPos(2);
+        } catch (cInvalidArgumentException $e) {}
+
+        cApiCecHook::setDefaultReturnValue($this->_pageTitle);
+        $pageTitle = cApiCecHook::executeAndReturn('Contenido.Content.CreateTitletag', $this->_idart);
+        if (null !== $pageTitle) {
+            $this->_pageTitle = $pageTitle;
         }
 
         // define regular expressions
