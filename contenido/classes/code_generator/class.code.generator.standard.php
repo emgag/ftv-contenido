@@ -295,9 +295,14 @@ class cCodeGeneratorStandard extends cCodeGeneratorAbstract {
      * @return string
      */
     protected function _processCodeTitleTag() {
-        if ($this->_pageTitle == '') {
-            cApiCecHook::setDefaultReturnValue($this->_pageTitle);
-            $this->_pageTitle = cApiCecHook::executeAndReturn('Contenido.Content.CreateTitletag');
+        try {
+            cApiCecHook::setReturnArgumentPos(2);
+        } catch (cInvalidArgumentException $e) {}
+
+        cApiCecHook::setDefaultReturnValue($this->_pageTitle);
+        $pageTitle = cApiCecHook::executeAndReturn('Contenido.Content.CreateTitletag', $this->_idart);
+        if (null !== $pageTitle) {
+            $this->_pageTitle = $pageTitle;
         }
 
         $headTag = array();
