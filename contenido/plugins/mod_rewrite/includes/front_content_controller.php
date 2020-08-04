@@ -38,8 +38,20 @@ if ($oMRController->errorOccured()) {
     // an error occured (idcat and or idart couldn't catched by controller)
 
     $iRedirToErrPage = ModRewrite::getConfig('redirect_invalid_article_to_errorsite', 0);
-    // try to redirect to errorpage if desired
-    if ($iRedirToErrPage == 1 && (int) $client > 0 && (int) $lang > 0) {
+
+    if ($iRedirToErrPage == 0) {
+        // show errorpage on current path
+
+        global $cfgClient;
+
+        header("HTTP/1.0 404 Not Found");
+
+        // errorpage
+        $idart = $cfgClient[$client]["errsite"]["idart"];
+        $idcat = $cfgClient[$client]["errsite"]["idcat"];
+    } elseif ($iRedirToErrPage == 1 && (int) $client > 0 && (int) $lang > 0) {
+        // try to redirect to errorpage if desired
+
         global $cfgClient;
 
         // errorpage
