@@ -60,8 +60,5 @@ data/logs/debug.log
 /desktop.ini
 /nbproject
 
-#
-# EMGAG additions
-#
-.idea
-
+/vendor
+/composer.lock
