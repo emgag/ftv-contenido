@@ -1,4 +1,7 @@
 {
   "name": "emgag/ftv-contenido",
-  "description": "Contenido code for film.tv"
+  "description": "Contenido code for film.tv",
+  "require-dev": {
+    "rector/rector": "^0.10.21"
+  }
 }
