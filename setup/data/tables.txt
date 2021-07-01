@@ -162,7 +162,7 @@
 "container_conf";"idcontainerc";"int(11)";"";"PRI";"0";"";"1"
 "container_conf";"idtplcfg";"int(11)";"";"MUL";"0";"";""
 "container_conf";"number";"int(11)";"";"";"0";"";""
-"container_conf";"container";"text";"YES";"";"";"";""
+"container_conf";"container";"mediumtext";"YES";"";"";"";""
 "content";"idcontent";"int(11)";"";"PRI";"0";"";"1"
 "content";"idartlang";"int(11)";"";"MUL";"0";"";""
 "content";"idtype";"int(11)";"";"MUL";"0";"";""
