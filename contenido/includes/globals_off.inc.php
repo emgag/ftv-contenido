@@ -18,15 +18,9 @@
  */
 
 /**
- * Set constant value depending on get_magic_quotes_gpc status
- *
  * @var bool
  */
-if (function_exists('get_magic_quotes_gpc')) {
-    define('CON_STRIPSLASHES', !get_magic_quotes_gpc());
-} else {
-    define('CON_STRIPSLASHES', true);
-}
+define('CON_STRIPSLASHES', true);
 
 // Simulate get_magic_quotes_gpc on if turned off
 if (CON_STRIPSLASHES) {
@@ -46,11 +40,6 @@ if (CON_STRIPSLASHES) {
     $cfg['simulate_magic_quotes'] = true;
 } else {
     $cfg['simulate_magic_quotes'] = false;
-}
-
-// This should be the default setting, but only for PHP older than 5.3.0
-if (version_compare(PHP_VERSION, '5.3.0', '<')) {
-    @set_magic_quotes_runtime(0);
 }
 
 // Register globals
